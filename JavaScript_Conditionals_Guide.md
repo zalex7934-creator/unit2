@@ -1,6 +1,6 @@
 # JavaScript Conditionals — Student Guide
 
-*AP CSP: Programming in JavaScript*
+_AP CSP: Programming in JavaScript_
 
 Conditionals let your program **make decisions**. Instead of running the same code every time, your program can check something and choose a different path depending on what's true. This is one of the core building blocks of programming — right up there with variables and functions.
 
@@ -40,7 +40,7 @@ if (age >= 18) {
 
 Since `age` is 17, the condition `age >= 18` is `false`, so the program runs the `else` block and prints `"They are a child"`.
 
-Think of it like a fork in the road — the program *must* take one path or the other, never both.
+Think of it like a fork in the road — the program _must_ take one path or the other, never both.
 
 ---
 
@@ -61,6 +61,7 @@ if (age >= 65) {
 ```
 
 **Important:** JavaScript checks these top to bottom and stops at the **first** condition that's true.
+
 - Is `age >= 65`? No (17 is not ≥ 65) → move on
 - Is `age <= 18`? Yes (17 ≤ 18) → run this block, print `"They is child"`, and **skip the rest**
 
@@ -70,16 +71,16 @@ You can chain as many `else if` blocks as you need, but only **one** block ever 
 
 ## 4. Comparison Operators (What Goes Inside the `()`)
 
-| Operator | Meaning | Example |
-|---|---|---|
-| `===` | equal to (strict) | `age === 18` |
-| `!==` | not equal to | `age !== 18` |
-| `>` | greater than | `age > 18` |
-| `<` | less than | `age < 18` |
-| `>=` | greater than or equal to | `age >= 18` |
-| `<=` | less than or equal to | `age <= 18` |
+| Operator | Meaning                  | Example      |
+| -------- | ------------------------ | ------------ |
+| `===`    | equal to (strict)        | `age === 18` |
+| `!==`    | not equal to             | `age !== 18` |
+| `>`      | greater than             | `age > 18`   |
+| `<`      | less than                | `age < 18`   |
+| `>=`     | greater than or equal to | `age >= 18`  |
+| `<=`     | less than or equal to    | `age <= 18`  |
 
-> **Tip:** Always use `===` and `!==` (not `==` or `!=`) in JavaScript. The triple-equals checks both value *and* type, which avoids weird bugs.
+> **Tip:** Always use `===` and `!==` (not `==` or `!=`) in JavaScript. The triple-equals checks both value _and_ type, which avoids weird bugs.
 
 ---
 
@@ -87,11 +88,11 @@ You can chain as many `else if` blocks as you need, but only **one** block ever 
 
 Real-world decisions often depend on **more than one thing**. Logical operators let you combine conditions.
 
-| Operator | Name | Meaning |
-|---|---|---|
-| `&&` | AND | Both sides must be true |
-| `\|\|` | OR | At least one side must be true |
-| `!` | NOT | Flips true to false (and vice versa) |
+| Operator | Name | Meaning                              |
+| -------- | ---- | ------------------------------------ |
+| `&&`     | AND  | Both sides must be true              |
+| `\|\|`   | OR   | At least one side must be true       |
+| `!`      | NOT  | Flips true to false (and vice versa) |
 
 ### Example: AND (`&&`)
 
@@ -106,7 +107,7 @@ if (age >= 35 && citizen === true) {
 }
 ```
 
-Both conditions must be true at the same time: you need to be **at least 35** *and* a **citizen**. If either one is false, the whole thing is false.
+Both conditions must be true at the same time: you need to be **at least 35** _and_ a **citizen**. If either one is false, the whole thing is false.
 
 ### Example: OR and NOT together
 
@@ -127,6 +128,7 @@ enter(hasKey, hasMagic, isBanned);
 ```
 
 Break this down piece by piece:
+
 1. `(hasKey || hasMagic)` → true if you have **either** a key **or** magic (or both)
 2. `!isBanned` → true only if `isBanned` is **false** (the `!` flips it)
 3. The whole condition needs **both** of those pieces to be true
@@ -135,12 +137,12 @@ This shows how conditionals and functions work together — the function takes i
 
 ### Truth Table Reference
 
-| `A` | `B` | `A && B` | `A \|\| B` |
-|---|---|---|---|
-| true | true | true | true |
-| true | false | false | true |
-| false | true | false | true |
-| false | false | false | false |
+| `A`   | `B`   | `A && B` | `A \|\| B` |
+| ----- | ----- | -------- | ---------- |
+| true  | true  | true     | true       |
+| true  | false | false    | true       |
+| false | true  | false    | true       |
+| false | false | false    | false      |
 
 ---
 
@@ -171,20 +173,21 @@ switch (key) {
 ```
 
 **How it works:**
+
 - JavaScript compares `key` against each `case` value, top to bottom.
 - When it finds a match (`case 3`), it runs that block — printing `"Weds"`.
-- `break;` tells JavaScript to **stop** and exit the switch. Without it, the code would "fall through" and keep running the *next* case too!
+- `break;` tells JavaScript to **stop** and exit the switch. Without it, the code would "fall through" and keep running the _next_ case too!
 - `default` is like the `else` in an if/else chain — it runs if **none** of the cases match.
 
-> **Common bug:** Forgetting `break;`. Try removing the `break;` after `case 2` and see what happens — you'll get both `"tuesday"` *and* `"Weds"` printed. This is called **fall-through**.
+> **Common bug:** Forgetting `break;`. Try removing the `break;` after `case 2` and see what happens — you'll get both `"tuesday"` _and_ `"Weds"` printed. This is called **fall-through**.
 
 ### `if/else` vs. `switch` — When to Use Which
 
-| Use `if / else if` when... | Use `switch` when... |
-|---|---|
-| You're checking ranges (`age >= 18`) | You're checking one variable against many exact values |
-| You're combining conditions with `&&` / `\|\|` | The values are simple (numbers, strings) |
-| You only have 2–3 branches | You have many branches (4+) and want readability |
+| Use `if / else if` when...                     | Use `switch` when...                                   |
+| ---------------------------------------------- | ------------------------------------------------------ |
+| You're checking ranges (`age >= 18`)           | You're checking one variable against many exact values |
+| You're combining conditions with `&&` / `\|\|` | The values are simple (numbers, strings)               |
+| You only have 2–3 branches                     | You have many branches (4+) and want readability       |
 
 ---
 
@@ -219,11 +222,11 @@ Using the ideas above, try writing these on your own:
 
 ## 9. Key Vocabulary
 
-| Term | Meaning |
-|---|---|
-| **condition** | An expression that evaluates to `true` or `false` |
-| **Boolean** | A data type with only two values: `true` or `false` |
-| **branch** | One possible path of code the program can take |
-| **fall-through** | When a `switch` case keeps running into the next case because `break` was missing |
-| **logical operator** | `&&`, `\|\|`, `!` — used to combine or invert conditions |
-| **comparison operator** | `===`, `!==`, `>`, `<`, `>=`, `<=` — used to compare values |
+| Term                    | Meaning                                                                           |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| **condition**           | An expression that evaluates to `true` or `false`                                 |
+| **Boolean**             | A data type with only two values: `true` or `false`                               |
+| **branch**              | One possible path of code the program can take                                    |
+| **fall-through**        | When a `switch` case keeps running into the next case because `break` was missing |
+| **logical operator**    | `&&`, `\|\|`, `!` — used to combine or invert conditions                          |
+| **comparison operator** | `===`, `!==`, `>`, `<`, `>=`, `<=` — used to compare values                       |
