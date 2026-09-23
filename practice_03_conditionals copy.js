@@ -21,7 +21,7 @@ else if (num > 0 && num%2 === 0){
   return `positive even`}
   else if (num > 0 && num%2 ===1){return `positive odd`}
   else if (num<0 && num%2 === 0){ return `negative even`}
-  else if (num<0 && num&2 === 1){return `negative odd`}
+  else(num<0 && num&2 === 1) ;{return `negative odd`}
 }
 console.log(classifyNumber(0)); // "zero"
 console.log(classifyNumber(4)); // "positive even"
@@ -44,7 +44,7 @@ function getLetterGrade(score) {
   else if (score <=79 && score>=70){return `C`}
   else if (score<= 69 && score>=60){return`D`}
   else if ( score<60 && score>= 0){return `F`}
-  else(score<0 || score>100){return`Invalid score`}
+  else if(score<0 || score>100){return`Invalid score`}
 }
 
 console.log(getLetterGrade(95)); // "A"
@@ -82,6 +82,11 @@ console.log(fizzBuzz(7)); // "7"
 //   weight > 5   -> 12
 function getShippingCost(weight, isMember) {
   // TODO: your code here (nested conditional — check isMember first, then weight)
+  if(isMember === true && weight <=5){return`0`}
+  else if (isMember=== true && weight>5) {return `3`}
+  else if ( isMember == false && weight <=1) {return `5`}
+  else if (isMember== false && weight <= 5) {return `8`}
+  else if (isMember== false && weight>5){return`12`}
 }
 
 console.log(getShippingCost(3, true)); // 0
